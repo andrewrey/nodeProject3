@@ -8,18 +8,6 @@ app.use(express.static(publicDirectoryPath));
 
 
 
-
-app.get('/help', (req, res)=>{
-  res.send({
-    name: 'Andrew', 
-    age: 37
-  });
-});
-
-app.get('/about', (req, res)=>{
-  res.send("<h1>About Page</h1>");
-});
-
 app.get('/weather', (req,res)=>{
   res.send([
     {
