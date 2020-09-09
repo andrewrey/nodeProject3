@@ -8,6 +8,13 @@ body {
   max-width: 650px;
   margin: 0 auto;
   padding: 0 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex-grow: 1;
 }
 
 header {
@@ -32,3 +39,15 @@ footer {
   margin-top: 16px;
   padding: 16px 0;
 }
+
+
+.image-container img{
+  width: 100%;
+  height: auto;
+}
+
+.image-container{
+  width: 250px;
+}
+
+
