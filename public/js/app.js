@@ -2,7 +2,8 @@
 const weatherForm = document.querySelector("form");
 const search = document.getElementById("user-location");
 const weather = document.getElementById("weatherReport");
-
+const errorMessage = document.getElementById("error-message");
+const loadMessage = document.getElementById("loading-message");
 // Event listener
 
 weatherForm.addEventListener("submit", postWeather);
@@ -15,16 +16,23 @@ function postWeather(e) {
 }
 
 function getWeather(location) {
-  fetch(`http://localhost:3000/weather?address=${location}`)
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.error) {
-        alert(data.error);
-      } else {
-        weather.innerHTML = `
+  weather.innerHTML = "";
+  loadMessage.textContent = "loading...";
+  setTimeout(() => {
+    loadMessage.textContent = "";
+    fetch(`http://localhost:3000/weather?address=${location}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          errorMessage.classList.remove("hide");
+          errorMessage.innerHTML = `<p>${data.error}</p>`;
+          setTimeout(() => errorMessage.classList.add("hide"), 2000);
+        } else {
+          weather.innerHTML = `
       <p>${data.location}</p>
       <p>${data.forecast}</p>
       `;
-      }
-    });
+        }
+      });
+  }, 2000);
 }

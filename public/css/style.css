@@ -22,7 +22,7 @@ header {
   margin-bottom: 48px;
 }
 
-h1{
+h1 {
   font-size: 64px;
   margin-bottom: 16px;
 }
@@ -40,14 +40,40 @@ footer {
   padding: 16px 0;
 }
 
-
-.image-container img{
+.image-container img {
   width: 100%;
   height: auto;
 }
 
-.image-container{
+.image-container {
   width: 250px;
 }
 
+#user-location {
+  display: inline-block;
+  padding: 8px;
+  border: 1px solid #ccc;
+  outline-color: green;
+}
 
+#submit {
+  padding: 8px;
+  cursor: pointer;
+  border: 1px solid #888;
+  background-color: #888;
+  color: #eee;
+}
+
+.error {
+  text-align: center;
+  background-color: rgba(246, 71, 71, 1);
+  color: black;
+  padding: 5px 0;
+  border-radius: 25px;
+  width: 50%;
+  margin-top: 25px;
+}
+
+.hide {
+  display: none;
+}
