@@ -1,6 +1,16 @@
-// DOM Elements
+// DOM element
+const weather = document.querySelector('.weather-info');
 
-const title = document.getElementById('index-title');
+fetch('http://localhost:3000/weather?address=vancouver')
+  .then(res => res.json())
+  .then(data => {
+    if(data.error)
+    {alert(data.error);
+    } else {
+     weather.innerHTML = data.forecast;
+    }
+  });
 
-title.addEventListener('mouseover', ()=>title.style.color = 'yellow');
-title.addEventListener('mouseout', ()=>title.style.color = 'orange');
+
+
+
