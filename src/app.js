@@ -40,15 +40,28 @@ app.get('/help', (req, res)=>{
   })
 });
 
+app.get('/products', (req, res)=>{
+  if(!req.query.search){
+    return res.send({
+      error: 'You need to provide a search!'
+    })
+  }
+  res.send({
+    products: []
+  });
+});
+
 app.get('/weather', (req,res)=>{
+  if(!req.query.address){
+    return res.send({
+      error: 'Must provide an address'
+    });
+  }
   res.send([
     {
       location: 'Vancouver',
-      forecast: 'Sunny with clouds'
-    },
-    {
-      location: 'Toronto',
-      forecast: 'Overcast and hot'
+      forecast: 'Sunny with clouds',
+      address: req.query.address
     }
   ]);
 });
