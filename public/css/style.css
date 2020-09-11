@@ -72,8 +72,21 @@ footer {
   border-radius: 25px;
   width: 50%;
   margin-top: 25px;
+  animation: moveup 1s ease-in;
 }
 
 .hide {
   display: none;
+}
+
+@keyframes moveup {
+  0% {
+    transform: translateY(50px) translateX(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
 }
