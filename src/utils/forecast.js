@@ -1,8 +1,10 @@
 const request = require("request");
-const apiInfo = require("./keys");
+
+require("dotenv").config({ path: "../.env" });
+const apiWeather = process.env.API_WEATHER;
 
 const forecast = (latitude, longitude, callback) => {
-  const url = `http://api.weatherstack.com/current?access_key=${apiInfo.weather}&query=${latitude},${longitude}`;
+  const url = `http://api.weatherstack.com/current?access_key=${apiWeather}&query=${latitude},${longitude}`;
   request({ url, json: true }, (error, response, { error: bodyError, location, request, current } = {}) => {
     if (error) {
       callback(`Unable to connect to weather services! Please try again later`, undefined);
