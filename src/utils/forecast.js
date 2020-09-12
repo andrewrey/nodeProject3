@@ -11,7 +11,6 @@ const forecast = (latitude, longitude, callback) => {
     } else if (bodyError) {
       callback(`Location Error, Please check coordinates`, undefined);
     } else {
-      console.log(current.visibility);
       callback(undefined, {
         location: location.name,
         query: request.query,
