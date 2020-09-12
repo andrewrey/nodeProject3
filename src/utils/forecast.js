@@ -1,6 +1,6 @@
 const request = require("request");
 
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config();
 const apiWeather = process.env.API_WEATHER;
 
 const forecast = (latitude, longitude, callback) => {
