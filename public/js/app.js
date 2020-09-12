@@ -30,6 +30,7 @@ function getWeather(location) {
         weather.innerHTML = `
     <p>${data.location}</p>
     <p>${data.forecast}</p>
+    <p>Visibity for today: ${data.visibility}</p>
     `;
       }
     });
